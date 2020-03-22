@@ -6,11 +6,13 @@
 {% for r in records %}
 
     <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ f.album }}</span>
-            <p>artist: {{ r.artist }}</p>
-            <p>released: {{ r.released }}</p>
-        </div>
+        <a href="/records/{{ r.id }}">
+            <div class="card-content">
+                <span class="card-title">{{ r.album }}</span>
+                <p>Artist: {{ r.artist }}</p>
+                <p>Released: {{ r.released }}</p>
+            </div>
+        </a>
     </div>
 
 {% endfor %}

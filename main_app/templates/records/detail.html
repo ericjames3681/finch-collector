@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Record Sleeve</h1>
+
+    <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ record.artist }}</span>
+                <p>Album: {{ record.album }}</p>
+                <p>Released: {{ record.released }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'records_update' record.id %}">Edit</a>
+                <a href="{% url 'records_delete' record.id %}">Delete</a>
+            </div>
+    </div>
+
+
+{% endblock %}
