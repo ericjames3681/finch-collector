@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Record
+from .forms import ListeningForm
 # Create your views here.
 class RecordUpdate(UpdateView):
     model = Record
@@ -28,4 +29,16 @@ def records_index(request):
 
 def records_detail(request, record_id):
     record = Record.objects.get(id=record_id)
-    return render(request, 'records/detail.html', {'record': record})
+    listening_form = ListeningForm()
+    return render(request, 'records/detail.html', {
+        'record': record,
+        'listening_form': listening_form
+    })
+
+def add_listening(request, record_id):
+    form = ListeningForm(request.POST)
+    if form.is_valid():
+        new_listening = form.save(commit=False)
+        new_listening.record_id = record_id
+        new_listening.save()
+    return redirect('detail', record_id=record_id)

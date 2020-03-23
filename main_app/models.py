@@ -20,7 +20,7 @@ class Record(models.Model):
         return reverse('detail', kwargs={'record_id': self.id})
 
 class Listening(models.Model):
-    date = models.DateField()
+    date = models.DateField('Last listen')
     medium = models.CharField(
         max_length=1,
         choices=MEDIUM,
