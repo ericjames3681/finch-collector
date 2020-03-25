@@ -48,12 +48,12 @@
     <div class="col s6">
       <h3>Where {{ record.album }} is available</h3>
       {% if record.distributors.count %}
-        {% for distributors in record.distributors.all %}
+        {% for distributor in record.distributors.all %}
           <div class="card">
             <div class="card-content">
               <span class="card-title">
-              <p>Distributed by: {{distributors.name}} </p>
-              <p>Website: {{distributors.website}}</p>
+              <p>Distributed by: {{distributor.name}} </p>
+              <p>Website: {{distributor.website}}</p>
               </span>
             </div>
             <div class="card-action">
@@ -76,8 +76,8 @@
           <div class="card">
             <div class="card-content">
               <span class="card-title">
-                    <p>Distrubuted by: {{distributors.name}} </p>
-                    <p>Website: <a href="{{distributors.website}}">{{distributors.website}}</a></p>
+                    <p>Distributed by: {{distributor.name}} </p>
+                    <p>Website: <a href="{{distributor.website}}">{{distributor.website}}</a></p>
               </span>
             </div>
             <div class="card-action">
