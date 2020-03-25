@@ -44,6 +44,56 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col s6">
+      <h3>Where {{ record.album }} is available</h3>
+      {% if record.distributors.count %}
+        {% for distributors in record.distributors.all %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+              <p>Distributed by: {{distributors.name}} </p>
+              <p>Website: {{distributors.website}}</p>
+              </span>
+            </div>
+            <div class="card-action">
+              <form action="{% url 'unassoc_dist' record.id distributor.id %}" method="post">
+                  {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>No longer available!</h5>
+      {% endif %}
+    </div>
+    <!-- Available toys will come after this line -->
+    <div class="col s6">
+      <h3>Available distributors</h3>
+      {% if distributors.count %}
+        {% for distributor in distributors.all %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                    <p>Distrubuted by: {{distributors.name}} </p>
+                    <p>Website: <a href="{{distributors.website}}">{{distributors.website}}</a></p>
+              </span>
+            </div>
+            <div class="card-action">
+              <form action="{% url 'assoc_dist' record.id distributor.id %}" method="post">
+                  {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>{{record.album}} Is Available Everywhere!</h5>
+      {% endif %}
+    </div>
+  </div>
+  
 
 <script>
   const dateEl = document.getElementById('id_date');

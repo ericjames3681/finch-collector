@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Where you find music:</h1>
+
+{% for distributors in distributor_list %}
+  <a href="{% url 'dist_detail' distributor.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">
+                <p>Distributed by: {{distributors.name}} </p>
+                <p>Website: {{distributors.website}}</p>
+            </span>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
