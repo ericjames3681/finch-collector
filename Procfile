@@ -1,1 +1,1 @@
-web: gunicorn records-of-eric.wsgi
+web: gunicorn recordcollector.wsgi
