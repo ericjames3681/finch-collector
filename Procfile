@@ -1,1 +1,1 @@
-web: gunicorn gamenight.wsgi
+web: gunicorn records-of-eric.wsgi
