@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Record Sleeve</h1>
+<h1 class="grey-text">Record Sleeve</h1>
+<hr />
 
-<div class="row">
+<div class="row black-text">
     <div class="col s6">
         <div class="card hoverable">
             <div class="card-content">
@@ -13,7 +14,6 @@
                 <div class="card-action">
                     <a href="{% url 'records_update' record.id %}">Edit</a>
                     <a href="{% url 'records_delete' record.id %}">Delete</a>
-            
                 </div>
             </div>
         </div>
@@ -44,12 +44,12 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row grey-text">
     <div class="col s6">
       <h3>Where {{ record.album }} is available</h3>
       {% if record.distributors.count %}
         {% for distributor in record.distributors.all %}
-          <div class="card">
+        <div class="card hoverable">
             <div class="card-content">
               <span class="card-title">
               <p>Distributed by: {{distributor.name}} </p>
@@ -73,7 +73,7 @@
       <h3>Available distributors</h3>
       {% if distributors.count %}
         {% for distributor in distributors.all %}
-          <div class="card">
+        <div class="card hoverable">
             <div class="card-content">
               <span class="card-title">
                     <p>Distributed by: {{distributor.name}} </p>

@@ -14,14 +14,23 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static '/css/style.css' %}"
+      href="{% static 'css/style.css' %}"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <body class="records">
+  <body
+    style="
+      background-image: url(https://i.imgur.com/Izfjt3T.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: cover;
+      opacity: 0.6;
+    "
+  >
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper #ff8a65 deep-orange lighten-2">
+        <div class="nav-wrapper blue grey">
           <ul>
             <li>
               <a href="/" class="left brand-logo"
@@ -40,9 +49,9 @@
     <main class="container">
       {% block content %} {% endblock %}
     </main>
-    <footer class="page-footer #ff8a65 deep-orange lighten-2">
+    <footer class="page-footer blue grey">
       <div class="right">
-        All Rights Reserved, &copy; 2020 Record Collector &nbsp;
+        &nbsp; All Rights Reserved, &copy; 2020 Record Collector &nbsp;
       </div>
       <a
         style="

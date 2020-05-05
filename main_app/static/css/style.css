@@ -1,12 +1,11 @@
 body {
-  background-image: url("../records.jpg");
+  /* background-image: url("../records.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-
 main {
   flex: 1 0 auto;
 }
